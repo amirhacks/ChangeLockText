@@ -1,0 +1,10 @@
+Package: com.amirramos
+Name: ChangeLockText
+Architecture: iphoneos-arm
+Description: An awesome MobileSubstrate tweak!
+Maintainer: amirramos
+Author: amirramos
+Section: Tweaks
+Depends: mobilesubstrate, preferenceloader
+Version: 1.0.0-1+debug
+Installed-Size: 332
