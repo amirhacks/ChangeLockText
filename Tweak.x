@@ -1,7 +1,7 @@
 #import <UIKit/UIKit.h>
 
-static BOOL LCTisEnabled = YES;
-static NSString* LCTtext = nil;
+static BOOL CLTisEnabled = YES;
+static NSString* CLTtext = nil;
 
 %hook SBUICallToActionLabel
 
@@ -10,15 +10,15 @@ static void loadPrefs()
 	//TO DO
 	//- change prefs objectForKey into the simplier
 	//- check if stringValue works 
-    NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/var/mobile/Library/Preferences/com.amirramos.pref.plist"];
-	LCTisEnabled = [prefs objectForKey:@"LCTisEnabled"] ? [[prefs objectForKey:@"LCTisEnabled"] boolValue] : LCTisEnabled;
-    LCTtext = [prefs objectForKey:@"LCTtext"] ? [prefs objectForKey:@"LCTtext"] : LCTtext;
+    NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/var/mobile/Library/Preferences/com.amirramos.changelocktext.plist"];
+	CLTisEnabled = [prefs objectForKey:@"CLTisEnabled"] ? [[prefs objectForKey:@"CLTisEnabled"] boolValue] : CLTisEnabled;
+    CLTtext = [prefs objectForKey:@"CLTtext"] ? [prefs objectForKey:@"CLTtext"] : CLTtext;
 }
 
 - (void)setText:(id)arg1 forLanguage:(id)arg2 animated:(bool)arg3 {
 	loadPrefs();
-	if(LCTisEnabled && LCTtext){
-    	NSString *customText = LCTtext;
+	if(CLTisEnabled && CLTtext){
+    	NSString *customText = CLTtext;
 		return %orig(customText, arg2, arg3);
     } else{
     	%orig;
@@ -29,6 +29,6 @@ static void loadPrefs()
 
 %ctor 
 {
-    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (CFNotificationCallback)loadPrefs, CFSTR("com.amirramos.pref/settingschanged"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (CFNotificationCallback)loadPrefs, CFSTR("com.amirramos.changelocktext/settingschanged"), NULL, CFNotificationSuspensionBehaviorCoalesce);
     loadPrefs();
 }
