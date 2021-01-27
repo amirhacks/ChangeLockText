@@ -1,4 +1,5 @@
-# ARCHS = x86_64
+ARCHS = armv7 armv7s arm64 arm64e
+
 # TARGET = simulator:clang
 include $(THEOS)/makefiles/common.mk
 

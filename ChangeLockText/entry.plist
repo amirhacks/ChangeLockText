@@ -15,7 +15,7 @@
 		<key>isController</key>
 		<true/>
 		<key>label</key>
-		<string>Lockscreen Custom Text iOS10</string>
+		<string>ChangeLockText</string>
 	</dict>
 </dict>
 </plist>

@@ -1,9 +1,10 @@
 Package: com.amirramos.changelocktext
 Name: ChangeLockText
 Depends: mobilesubstrate
-Version: 0.0.1
+Version: 2.0.0
 Architecture: iphoneos-arm
-Description: An Awesome Mobilesusbtrate Tweak
+Description: Change (Press home to unlock) text in lockscreen whatever you like.
 Maintainer: amirramos
 Author: amirramos
 Section: Tweaks
+Depiction: https://amirhacks.github.io/repo/depiction/changelocktext.html
